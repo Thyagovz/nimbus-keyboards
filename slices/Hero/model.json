@@ -10,7 +10,35 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,strong,em"
+          }
+        },
+        "buy_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Buy Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
