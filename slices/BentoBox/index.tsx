@@ -10,7 +10,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
 
 /**
- * Props for `BentoBox`.
+ * Props for `BentoBox`.d
  */
 export type BentoBoxProps = SliceComponentProps<Content.BentoBoxSlice>;
 

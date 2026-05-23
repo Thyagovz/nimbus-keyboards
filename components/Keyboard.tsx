@@ -319,7 +319,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
     knurlTexture.wrapS = THREE.RepeatWrapping;
     knurlTexture.wrapT = THREE.RepeatWrapping;
 
-    const screenTexture = useTexture("screen_uv.png");
+    const screenTexture = useTexture("/screen_uv.png");
     screenTexture.flipY = false;
 
     screenTexture.repeat.set(-1, -1);
