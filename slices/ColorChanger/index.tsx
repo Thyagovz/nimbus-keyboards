@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { Content } from "@prismicio/client";
 import {
   PrismicRichText,
@@ -10,6 +10,8 @@ import {
 import { Bounded } from "@/components/Bounded";
 import clsx from "clsx";
 import Image from "next/image";
+import { Canvas } from "@react-three/fiber";
+import { Scene } from "./Scene";
 
 export const KEYCAP_TEXTURES = [
   {
@@ -68,6 +70,10 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
     setSelectedTextureId(texture.id);
   }
 
+  const handleAnimationComplete = useCallback(() => {
+    setIsAnimating(false);
+  }, []);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -75,7 +81,15 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
       className="relative flex h-[90vh] min-h-[1000px] flex-col overflow-hidden bg-linear-to-br from-[#0f172a] to-[#062f4a] text-white"
     >
       {/* SVG background */}
-      {/* canvas */}
+      <Canvas
+        camera={{ position: [0, 0.5, 0.5], fov: 45, zoom: 1.5 }}
+        className="-mb-[10vh] grow"
+      >
+        <Scene
+          selectedTextureId={selectedTextureId}
+          onAnimationComplete={handleAnimationComplete}
+        />
+      </Canvas>
       <Bounded
         className="relative shrink-0"
         innerClassName="gap-6 lg:gap-8 flex flex-col lg:flex"
@@ -98,7 +112,7 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
                   selectedTextureId === texture.id
                     ? "border-[#81BFED] bg-[#81BFEDdd]/20"
                     : "cursor-pointer border-gray-300 hover:border-gray-500",
-                    isAnimating && "cursor-not-allowed opacity-50"
+                  isAnimating && "cursor-not-allowed opacity-50",
                 )}
               >
                 <div className="mb-3 overflow-hidden rounded border-2 border-black bg-gray-100">
