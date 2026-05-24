@@ -25,7 +25,7 @@ export function Scene({ selectedTextureId, onAnimationComplete }: SceneProps) {
         clonedTexture.colorSpace = THREE.SRGBColorSpace;
 
         materialMap[textureConfig.id] = new THREE.MeshStandardMaterial({
-          map: texture,
+          map: clonedTexture,
           roughness: 0.7,
         });
       }
@@ -34,10 +34,17 @@ export function Scene({ selectedTextureId, onAnimationComplete }: SceneProps) {
     return materialMap;
   }, [textures]);
 
+  const currentKnobColor = KEYCAP_TEXTURES.find(
+    (t) => t.id === selectedTextureId,
+  )?.knobColor;
+
   return (
     <Stage environment={"city"} intensity={0.05} shadows="contact">
       <group>
-        <Keyboard keycapMaterial={materials[selectedTextureId]} />
+        <Keyboard
+          keycapMaterial={materials[selectedTextureId]}
+          knobColor={currentKnobColor}
+        />
       </group>
     </Stage>
   );

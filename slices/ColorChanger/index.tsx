@@ -68,6 +68,9 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
     if (texture.id === selectedTextureId || isAnimating) return;
 
     setSelectedTextureId(texture.id);
+    setBackroundText(
+      KEYCAP_TEXTURES.find((t) => t.id === texture.id)?.name || "",
+    );
   }
 
   const handleAnimationComplete = useCallback(() => {
@@ -80,7 +83,25 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative flex h-[90vh] min-h-[1000px] flex-col overflow-hidden bg-linear-to-br from-[#0f172a] to-[#062f4a] text-white"
     >
-      {/* SVG background */}
+      <svg
+        className="pointer-events-none absolute top-0 left-0 h-auto w-full mix-blend-overlay"
+        viewBox=" 0 0 75 100"
+      >
+        <text
+          fontSize={7}
+          textAnchor="middle"
+          dominantBaseline={"middle"}
+          x="50%"
+          y="50%"
+          className="font-black-slanted fill-white/20 uppercase group-hover:fill-white/30 motion-safe:transition-all motion-safe:duration-700"
+        >
+          {Array.from({ length: 20 }, (_, i) => (
+            <tspan key={i} x={`${(i + 1) * 10}%`} dy={i === 0 ? -50 : 6}>
+              {Array.from({ length: 10 }, () => backgroundText).join("")}
+            </tspan>
+          ))}
+        </text>
+      </svg>
       <Canvas
         camera={{ position: [0, 0.5, 0.5], fov: 45, zoom: 1.5 }}
         className="-mb-[10vh] grow"
