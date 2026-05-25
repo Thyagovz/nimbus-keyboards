@@ -9,8 +9,9 @@ import Scene from "./Scene";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP, SplitText);
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
 /**
  * Props for `Hero`.
@@ -40,6 +41,24 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         duration: 0.4,
         stagger: 0.07,
       }).to(".hero-body", { opacity: 1, duration: 0.6, ease: "power2.out" });
+
+      gsap.fromTo(
+        ".hero-scene",
+        {
+          background:
+            "linear-gradient(to bottom, #000000, #0f172a, #062f4a, #7fa0b9)",
+        },
+        {
+          background:
+            "linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff)",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "50% bottom",
+            scrub: 1,
+          },
+        },
+      );
     });
 
     mm.add("(prefers-reduced-motion: reduce)", () => {
@@ -51,7 +70,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="blue-gradient-bg relative h-dvh text-white text-shadow-black/30 text-shadow-lg"
+      className="hero relative h-dvh text-white text-shadow-black/30 text-shadow-lg motion-safe:h-[300vh]"
     >
       <div className="hero-scene pointer-events-none sticky top-0 h-dvh w-full">
         <Canvas shadows="soft">
@@ -77,7 +96,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
         <Bounded
           fullWidth
-          className="hero-body absolute inset-x-0 bottom-0 md:right-[8vw] md:left-auto opacity-0"
+          className="hero-body absolute inset-x-0 bottom-0 opacity-0 md:right-[8vw] md:left-auto"
           innerClassName="flex flex-col gap-3"
         >
           <div className="max-w-md">
@@ -85,9 +104,9 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               field={slice.primary.body}
               components={{
                 heading2: ({ children }) => (
-                  <h1 className="font-bold-slanted mb-1 text-4xl uppercase lg:mb-2 lg:text-6xl">
+                  <h2 className="font-bold-slanted mb-1 text-4xl uppercase lg:mb-2 lg:text-6xl">
                     {children}
-                  </h1>
+                  </h2>
                 ),
               }}
             />
