@@ -11,7 +11,7 @@ import { Bounded } from "@/components/Bounded";
 import clsx from "clsx";
 import Image from "next/image";
 import { Canvas } from "@react-three/fiber";
-import { Scene } from "./Scene";
+import Scene from "./Scene";
 
 export const KEYCAP_TEXTURES = [
   {

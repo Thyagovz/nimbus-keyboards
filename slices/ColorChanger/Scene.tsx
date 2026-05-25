@@ -13,7 +13,7 @@ type SceneProps = {
   onAnimationComplete: () => void;
 };
 
-export function Scene({ selectedTextureId, onAnimationComplete }: SceneProps) {
+const Scene = ({ selectedTextureId, onAnimationComplete }: SceneProps) => {
   const keyboardRef = useRef<THREE.Group>(null);
   const texturePaths = KEYCAP_TEXTURES.map((t) => t.path);
   const textures = useTexture(texturePaths);
@@ -89,4 +89,6 @@ export function Scene({ selectedTextureId, onAnimationComplete }: SceneProps) {
       </group>
     </Stage>
   );
-}
+};
+
+export default Scene;
