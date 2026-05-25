@@ -13,7 +13,7 @@ import clsx from "clsx";
 import { LuChevronRight, LuLoader } from "react-icons/lu";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
+import { checkout } from "@/checkout";
 
 gsap.registerPlugin(useGSAP);
 
@@ -33,7 +33,7 @@ const PurchaseButton: FC<PurchaseButtonProps> = ({ slice }) => {
 
   const handlePurchaseClick = async () => {
     setIsPressed(true);
-    //Add checkout logic
+    await checkout();
     setIsPressed(false);
   };
 
