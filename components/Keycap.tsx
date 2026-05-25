@@ -44,7 +44,7 @@ const Keycap = ({
 
   keycapTexture.flipY = false;
   keycapTexture.colorSpace = THREE.SRGBColorSpace;
-  
+
   const placeholderMat = new THREE.MeshStandardMaterial({
     map: keycapTexture,
     roughness: 0.7,

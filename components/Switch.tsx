@@ -12,7 +12,6 @@ export const SOUND_MAP = {
   black: ["/sounds/black-1.mp3", "/sounds/black-2.mp3", "/sounds/black-3.mp3"],
 };
 
-// Type definitions
 type GLTFResult = GLTF & {
   nodes: {
     Single_Switch_Mesh_1: THREE.Mesh;
@@ -70,8 +69,6 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
       ease: "power2.out",
     });
 
-    // Audio
-
     audio.current = gsap.utils.random(allAudio.current);
     audio.current.currentTime = 0;
     audio.current.play();
@@ -116,7 +113,7 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
 
   return (
     <group {...restProps}>
-      {/* Hit box */}
+      {}
       <mesh
         position={[0, 0.05, 0]}
         onPointerDown={handlePointerDown}
@@ -130,7 +127,7 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
       </mesh>
 
       <group ref={switchGroupRef} scale={10} rotation={[Math.PI / 2, 0, 0]}>
-        {/* Switch housing */}
+        {}
         <mesh
           castShadow
           receiveShadow
@@ -139,7 +136,7 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
           <meshStandardMaterial color="#999999" roughness={0.7} />
         </mesh>
 
-        {/* Gold contacts */}
+        {}
         <mesh
           castShadow
           receiveShadow
@@ -148,7 +145,7 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
           <meshStandardMaterial color="#ffd700" roughness={0.1} metalness={1} />
         </mesh>
 
-        {/* Colored stem */}
+        {}
         <mesh
           ref={stemRef}
           castShadow
@@ -158,7 +155,7 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
           <meshStandardMaterial color={hexColor} roughness={0.7} />
         </mesh>
 
-        {/* Switch base */}
+        {}
         <mesh
           castShadow
           receiveShadow

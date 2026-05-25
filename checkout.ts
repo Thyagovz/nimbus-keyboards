@@ -6,9 +6,6 @@ export async function checkout() {
 
     const data = await res.json();
 
-    console.log("STATUS:", res.status);
-    console.log("DATA:", data);
-
     if (!data.url) {
       throw new Error("Stripe checkout URL missing");
     }

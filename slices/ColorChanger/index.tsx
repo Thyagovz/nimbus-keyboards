@@ -49,14 +49,8 @@ export const KEYCAP_TEXTURES = [
 
 type KeycapTexture = (typeof KEYCAP_TEXTURES)[number];
 
-/**
- * Props for `ColorChanger`.
- */
 export type ColorChangerProps = SliceComponentProps<Content.ColorChangerSlice>;
 
-/**
- * Component for "ColorChanger" Slices.
- */
 const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
   const [selectedTextureId, setSelectedTextureId] = useState(
     KEYCAP_TEXTURES[0].id,

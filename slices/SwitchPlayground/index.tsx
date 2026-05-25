@@ -16,15 +16,9 @@ import { Stage } from "@react-three/drei";
 import gsap from "gsap";
 import { LuVolume2 } from "react-icons/lu";
 
-/**
- * Props for `SwitchPlayground`.
- */
 export type SwitchPlaygroundProps =
   SliceComponentProps<Content.SwitchPlaygroundSlice>;
 
-/**
- * Component for "SwitchPlayground" Slices.
- */
 const SwitchPlayground: FC<SwitchPlaygroundProps> = ({ slice }) => {
   return (
     <Bounded

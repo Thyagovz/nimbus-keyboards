@@ -4,9 +4,6 @@ import { SliceComponentProps } from "@prismicio/react";
 import LogoMark from "@/components/LogoMark";
 import clsx from "clsx";
 
-/**
- * Props for `Marquee`.
- */
 export type MarqueeProps = SliceComponentProps<Content.MarqueeSlice>;
 
 type MarqueeContentProps = {
@@ -27,9 +24,6 @@ const MarqueeContent = ({ phrases }: MarqueeContentProps) => (
   </div>
 );
 
-/**
- * Component for "Marquee" Slices.
- */
 const Marquee: FC<MarqueeProps> = ({ slice }) => {
   return (
     <section
@@ -49,7 +43,7 @@ const Marquee: FC<MarqueeProps> = ({ slice }) => {
                 "[animation-direction:reverse]",
             )}
           >
-            {/* Content to duplicate */}
+            {}
             <MarqueeContent phrases={slice.primary.phrases} />
             <MarqueeContent phrases={slice.primary.phrases} />
             <MarqueeContent phrases={slice.primary.phrases} />

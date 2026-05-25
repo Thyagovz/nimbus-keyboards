@@ -10,14 +10,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
 import { FadeIn } from "@/components/FadeIn";
 
-/**
- * Props for `BentoBox`.d
- */
 export type BentoBoxProps = SliceComponentProps<Content.BentoBoxSlice>;
 
-/**
- * Component for "BentoBox" Slices.
- */
 const BentoBox: FC<BentoBoxProps> = ({ slice }) => {
   return (
     <Bounded
@@ -25,7 +19,10 @@ const BentoBox: FC<BentoBoxProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <FadeIn>
-        <h2 id="features" className="font-bold-slanted mb-8 scroll-pt-6 text-6xl uppercase md:text-8xl">
+        <h2
+          id="features"
+          className="font-bold-slanted mb-8 scroll-pt-6 text-6xl uppercase md:text-8xl"
+        >
           <PrismicText field={slice.primary.heading} />
         </h2>
       </FadeIn>
@@ -46,7 +43,6 @@ type BentoBoxItemProps = {
 };
 
 function BentoBoxItem({ item }: BentoBoxItemProps) {
-  console.log(item.size);
   return (
     <div
       className={clsx(

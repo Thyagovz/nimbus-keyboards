@@ -120,14 +120,13 @@ type GLTFResult = GLTF & {
 };
 
 export interface KeyboardRefs {
-  // Main keyboard structure
+
   plate: React.RefObject<THREE.Mesh | null>;
   topCase: React.RefObject<THREE.Mesh | null>;
   weight: React.RefObject<THREE.Mesh | null>;
   screen: React.RefObject<THREE.Mesh | null>;
   knob: React.RefObject<THREE.Mesh | null>;
 
-  // Switch groups for wave animation
   switches: {
     functionRow: React.RefObject<THREE.Group | null>;
     numberRow: React.RefObject<THREE.Group | null>;
@@ -138,7 +137,6 @@ export interface KeyboardRefs {
     arrows: React.RefObject<THREE.Group | null>;
   };
 
-  // Keycap groups for easy animation targeting
   keycaps: {
     functionRow: React.RefObject<THREE.Group | null>;
     numberRow: React.RefObject<THREE.Group | null>;
@@ -149,12 +147,10 @@ export interface KeyboardRefs {
     arrows: React.RefObject<THREE.Group | null>;
   };
 
-  // Individual keycaps for detailed animations
   keys: {
     [key: string]: React.RefObject<THREE.Mesh | null>;
   };
 
-  // Main container
   container: React.RefObject<THREE.Group | null>;
 }
 
@@ -172,7 +168,6 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
       DRACO_URL,
     ) as unknown as GLTFResult;
 
-    // Main structure refs
     const containerRef = useRef<THREE.Group>(null);
     const plateRef = useRef<THREE.Mesh>(null);
     const topCaseRef = useRef<THREE.Mesh>(null);
@@ -180,7 +175,6 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
     const screenRef = useRef<THREE.Mesh>(null);
     const knobRef = useRef<THREE.Mesh>(null);
 
-    // Switch group refs
     const switchFunctionRowRef = useRef<THREE.Group>(null);
     const switchNumberRowRef = useRef<THREE.Group>(null);
     const switchTopRowRef = useRef<THREE.Group>(null);
@@ -189,7 +183,6 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
     const switchModifiersRef = useRef<THREE.Group>(null);
     const switchArrowsRef = useRef<THREE.Group>(null);
 
-    // Keycap group refs
     const functionRowRef = useRef<THREE.Group>(null);
     const numberRowRef = useRef<THREE.Group>(null);
     const topRowRef = useRef<THREE.Group>(null);
@@ -198,7 +191,6 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
     const modifiersRef = useRef<THREE.Group>(null);
     const arrowsRef = useRef<THREE.Group>(null);
 
-    // Individual key refs
     const keyRefs = {
       esc: useRef<THREE.Mesh>(null),
       f1: useRef<THREE.Mesh>(null),
@@ -282,7 +274,6 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
       arrowright: useRef<THREE.Mesh>(null),
     };
 
-    // Expose refs through imperative handle
     useImperativeHandle(ref, () => ({
       plate: plateRef,
       topCase: topCaseRef,
@@ -411,8 +402,8 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             position={[-0.022, -0.009, -0.057]}
           />
 
-          {/* Switches - organized by rows with individual meshes for animation */}
-          {/* Function Row Switches */}
+          {}
+          {}
           <group ref={switchFunctionRowRef}>
             {[
               -0.165, -0.145, -0.126, -0.107, -0.088, -0.069, -0.05, -0.031,
@@ -447,7 +438,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Number Row Switches */}
+          {}
           <group ref={switchNumberRowRef}>
             {[
               -0.165, -0.146, -0.127, -0.108, -0.089, -0.07, -0.051, -0.032,
@@ -482,7 +473,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Top Row Switches */}
+          {}
           <group ref={switchTopRowRef}>
             {[
               -0.16, -0.136, -0.117, -0.098, -0.079, -0.06, -0.041, -0.022,
@@ -517,7 +508,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Home Row Switches */}
+          {}
           <group ref={switchHomeRowRef}>
             {[
               -0.158, -0.132, -0.113, -0.094, -0.075, -0.056, -0.037, -0.018,
@@ -552,7 +543,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Bottom Row Switches */}
+          {}
           <group ref={switchBottomRowRef}>
             {[
               -0.153, -0.122, -0.103, -0.084, -0.065, -0.046, -0.027, -0.008,
@@ -587,13 +578,13 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Modifier Switches */}
+          {}
           <group ref={switchModifiersRef}>
             {[
               [-0.162, -0.011],
               [-0.139, -0.011],
               [-0.115, -0.011],
-              [-0.043, -0.01], // Space key
+              [-0.043, -0.01],
               [0.028, -0.011],
               [0.052, -0.011],
             ].map(([x, z], i) => (
@@ -626,7 +617,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             ))}
           </group>
 
-          {/* Arrow Switches */}
+          {}
           <group ref={switchArrowsRef}>
             {[
               [0.102, -0.03],
@@ -711,7 +702,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             scale={-1}
           />
 
-          {/* Function Row */}
+          {}
           <group ref={functionRowRef}>
             <mesh
               ref={keyRefs.esc}
@@ -827,7 +818,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Number Row */}
+          {}
           <group ref={numberRowRef}>
             <mesh
               ref={keyRefs.grave}
@@ -943,7 +934,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Top Row (QWERTY) */}
+          {}
           <group ref={topRowRef}>
             <mesh
               ref={keyRefs.tab}
@@ -1067,7 +1058,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Home Row (ASDF) */}
+          {}
           <group ref={homeRowRef}>
             <mesh
               ref={keyRefs.caps}
@@ -1183,7 +1174,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Bottom Row (ZXCV) */}
+          {}
           <group ref={bottomRowRef}>
             <mesh
               ref={keyRefs.lshift}
@@ -1299,7 +1290,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Modifiers */}
+          {}
           <group ref={modifiersRef}>
             <mesh
               ref={keyRefs.lcontrol}
@@ -1351,7 +1342,7 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
             />
           </group>
 
-          {/* Arrow Keys */}
+          {}
           <group ref={arrowsRef}>
             <mesh
               ref={keyRefs.arrowleft}

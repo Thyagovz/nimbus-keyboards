@@ -31,7 +31,6 @@ interface SuccessPageProps {
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   const { session_id } = await searchParams;
 
-  // Missing session id
   if (!session_id) {
     return (
       <div className="relative mt-20 min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -115,7 +114,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   return (
     <div className="relative mt-20 min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Header */}
+        {}
         <div className="text-center">
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-[#01A7E1] to-[#0196C9]">
             <LuCheck className="h-10 w-10 text-white" />
@@ -135,7 +134,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           </p>
         </div>
 
-        {/* Order Card */}
+        {}
         <div className="mt-12 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg shadow-black/5 backdrop-blur-xl">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold text-gray-900">
@@ -189,7 +188,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           </div>
         </div>
 
-        {/* What's Next */}
+        {}
         <div className="mt-12 text-center">
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             What&apos;s Next?
@@ -239,7 +238,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           </div>
         </div>
 
-        {/* Buttons */}
+        {}
         <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             href="/"

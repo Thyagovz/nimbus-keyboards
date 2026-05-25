@@ -47,14 +47,8 @@ function LoaderWrapper() {
   );
 }
 
-/**
- * Props for `Hero`.
- */
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
-/**
- * Component for "Hero" Slices.
- */
 const Hero: FC<HeroProps> = ({ slice }) => {
   useGSAP(() => {
     const mm = gsap.matchMedia();
