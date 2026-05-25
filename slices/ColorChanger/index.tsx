@@ -114,7 +114,7 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
       </Canvas>
       <Bounded
         className="relative shrink-0"
-        innerClassName="gap-6 lg:gap-8 flex flex-col lg:flex"
+        innerClassName="gap-6 lg:gap-8 flex flex-col lg:flex-row"
       >
         <div className="max-w-md shrink-0">
           <h2 className="font-bold-slanted mb-1 text-4xl uppercase lg:mb-2 lg:text-6xl">
