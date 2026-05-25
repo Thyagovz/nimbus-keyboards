@@ -28,8 +28,10 @@ type SwitchProps = React.ComponentProps<"group"> & {
   hexColor: string;
 };
 
+const DRACO_URL = "https://www.gstatic.com/draco/versioned/decoders/1.5.7/";
+
 const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
-  const { nodes } = useGLTF("/switch.gltf") as unknown as GLTFResult;
+  const { nodes } = useGLTF("/models/switch.glb", DRACO_URL) as unknown as GLTFResult;
   const switchGroupRef = useRef<THREE.Group>(null);
   const stemRef = useRef<THREE.Mesh>(null);
   const isPressedRef = useRef(false);
@@ -169,6 +171,6 @@ const Switch = ({ color, hexColor, ...restProps }: SwitchProps) => {
   );
 };
 
-useGLTF.preload("/switch.gltf");
+useGLTF.preload("/models/switch.glb", DRACO_URL);
 
 export default Switch;

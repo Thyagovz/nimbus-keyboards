@@ -163,10 +163,13 @@ interface KeyboardProps extends React.ComponentProps<"group"> {
   knobColor?: string;
 }
 
+const DRACO_URL = "https://www.gstatic.com/draco/versioned/decoders/1.5.7/";
+
 export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
   ({ keycapMaterial, knobColor, ...props }, ref) => {
     const { nodes, materials } = useGLTF(
-      "/keyboard.gltf",
+      "/models/keyboard.glb",
+      DRACO_URL,
     ) as unknown as GLTFResult;
 
     // Main structure refs
@@ -1398,4 +1401,4 @@ export const Keyboard = forwardRef<KeyboardRefs, KeyboardProps>(
 
 Keyboard.displayName = "Keyboard";
 
-useGLTF.preload("/keyboard.gltf");
+useGLTF.preload("/models/keyboard.glb", DRACO_URL);

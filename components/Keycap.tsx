@@ -15,12 +15,14 @@ type GLTFResult = GLTF & {
   materials: Record<string, unknown>;
 };
 
+const DRACO_URL = "https://www.gstatic.com/draco/versioned/decoders/1.5.7/";
+
 const Keycap = ({
   position = [0, 0, 0],
   rotation = [0, 0, 0],
   texture = 0,
 }: KeycapProps) => {
-  const { nodes } = useGLTF("/keycap.gltf") as unknown as GLTFResult;
+  const { nodes } = useGLTF("/models/keycap.glb", DRACO_URL) as unknown as GLTFResult;
 
   const textures = [
     "/keycap_uv-1.png",
